@@ -1,0 +1,1 @@
+# expressjs-typescript-sequelize-boilerplate
