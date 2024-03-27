@@ -1,15 +1,20 @@
-import express, { Router } from "express";
+import { BaseRoute } from "./baseRoute";
+import BaseValidator from "../helpers/validators/baseValidator";
+import CreatePostValidator from "../helpers/validators/post/createPostValidator";
 import PostController from "../controllers/postController";
-class PostRoute {
-  public router: Router;
-
+class PostRoute extends BaseRoute {
   constructor() {
-    this.router = express.Router();
+    super();
     this.initializeRoutes();
   }
 
   private initializeRoutes(): void {
-    this.router.post("/", PostController.create);
+    this.router.post(
+      "/",
+      CreatePostValidator.getValidationRules(),
+      BaseValidator.validate,
+      PostController.create
+    );
   }
 }
 

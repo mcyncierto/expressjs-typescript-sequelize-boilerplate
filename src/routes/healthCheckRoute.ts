@@ -1,11 +1,9 @@
-import express, { Router } from "express";
+import { BaseRoute } from "./baseRoute";
 import HealthCheckController from "../controllers/healthCheckController";
 
-class HealthCheckRoute {
-  public router: Router;
-
+class HealthCheckRoute extends BaseRoute {
   constructor() {
-    this.router = express.Router();
+    super();
     this.initializeRoutes();
   }
 

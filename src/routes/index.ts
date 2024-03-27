@@ -1,18 +1,23 @@
-import express, { Router } from "express";
+import { BaseRoute } from "./baseRoute";
+import SwaggerRoute from "./docsRoute";
 import HealthCheckRoute from "./healthCheckRoute";
 import PostRoute from "./postRoute";
 
-class Routes {
-  public router: Router;
+class Routes extends BaseRoute {
+  private v1Endpoint: string = `${this.basePrefix}${this.version1Prefix}`;
 
   constructor() {
-    this.router = express.Router();
+    super();
     this.initializeRoutes();
   }
 
-  private initializeRoutes(): void {
-    this.router.use("/healthcheck", new HealthCheckRoute().router);
-    this.router.use("/posts", new PostRoute().router);
+  public initializeRoutes(): void {
+    this.router.use(`${this.basePrefix}/docs`, new SwaggerRoute().router);
+    this.router.use(
+      `${this.v1Endpoint}/healthcheck`,
+      new HealthCheckRoute().router
+    );
+    this.router.use(`${this.v1Endpoint}/posts`, new PostRoute().router);
     // Add more routes here as needed
   }
 }

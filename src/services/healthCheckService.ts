@@ -4,7 +4,7 @@ const { sequelize } = models;
 
 class HealthCheckService {
   static async healthCheckApp() {
-    return { appStatus: "OK" };
+    return { appStatus: "ok" };
   }
 
   static async healthCheckDb() {
