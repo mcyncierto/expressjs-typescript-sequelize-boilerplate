@@ -1,6 +1,7 @@
 import express, { Application } from "express";
 import cors from "cors";
 import routes from "./routes";
+import ErrorHandler from "./middlewares/errorHandlerMiddleware";
 
 class Server {
   public app: Application;
@@ -10,6 +11,7 @@ class Server {
     this.initializeMiddlewares();
     this.initializeRoutes();
     this.handleUnknownRoutes();
+    this.app.use(ErrorHandler.handle);
     // You can add more initialization logic here if needed
   }
 

@@ -11,7 +11,7 @@ class PostController {
    * @param {string} req.body.title - The title of the post.
    * @param {string} req.body.content - The content of the post.
    * @param {Response} res - The Express response object.
-   * @param {Next} next - The Express next function to handle errors.
+   * @param {NextFunction} next - The Express next function to handle errors.
    * @returns {Promise<void>} - A promise that resolves once the response is sent.
    */
   static async create(

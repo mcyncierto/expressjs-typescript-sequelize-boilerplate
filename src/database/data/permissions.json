@@ -1,0 +1,8 @@
+[
+  {
+    "resource": "all",
+    "action": "all:any",
+    "name": "all.all:any",
+    "description": "Unrestricted access for any action on any resource. It essentially grants a user full control over all aspects of the application."
+  }
+]

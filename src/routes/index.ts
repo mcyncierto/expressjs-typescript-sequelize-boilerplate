@@ -1,4 +1,5 @@
 import { BaseRoute } from "./baseRoute";
+import AuthRoute from "./authRoute";
 import SwaggerRoute from "./docsRoute";
 import HealthCheckRoute from "./healthCheckRoute";
 import PostRoute from "./postRoute";
@@ -12,6 +13,7 @@ class Routes extends BaseRoute {
   }
 
   public initializeRoutes(): void {
+    this.router.use(`${this.v1Endpoint}/auth`, new AuthRoute().router);
     this.router.use(`${this.basePrefix}/docs`, new SwaggerRoute().router);
     this.router.use(
       `${this.v1Endpoint}/healthcheck`,

@@ -4,6 +4,6 @@ export class UnauthorizedException extends Error {
   constructor(public errors: string = "Unauthorized") {
     super("Unauthorized error");
     this.statusCode = 401;
-    this.errors = errors;
+    this.message = errors;
   }
 }
