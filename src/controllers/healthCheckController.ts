@@ -18,8 +18,8 @@ class HealthCheckController {
   /**
    * Perform a database health check operation and return the result.
    *
-   * @param {Request} req - The Restify request object.
-   * @param {Response} res - The Restify response object.
+   * @param {Request} req - The Express request object.
+   * @param {Response} res - The Express response object.
    * @returns {Promise<void>} - A promise that resolves with the database health check result.
    */
   static async healthCheckDb(req: Request, res: Response): Promise<void> {

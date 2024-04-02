@@ -2,6 +2,7 @@ import express, { Application } from "express";
 import cors from "cors";
 import routes from "./routes";
 import ErrorHandler from "./middlewares/errorHandlerMiddleware";
+import { authenticate } from "./middlewares/authMiddleware";
 
 class Server {
   public app: Application;
@@ -16,6 +17,7 @@ class Server {
   }
 
   private initializeMiddlewares(): void {
+    this.app.use(authenticate);
     this.app.use(cors());
     this.app.use(express.json());
     this.app.use(express.urlencoded({ extended: true }));
