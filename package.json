@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "NODE_ENV=$(grep NODE_ENV .env | cut -d '=' -f2) ts-node src/index.ts",
+    "start": "NODE_ENV=$(grep NODE_ENV .env | cut -d '=' -f2) sequelize db:create; sequelize db:migrate; sequelize db:seed:all; ts-node src/index.ts",
     "dev": "nodemon --exec ts-node --watch src src/index.ts",
     "test:unit": "jest --config ./jest.config.unit.cjs",
     "test:integration": "bash ./tests/config/integrationTestRunner.sh"
